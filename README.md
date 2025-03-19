@@ -13,7 +13,7 @@ languages:
 
 # Flex Consumption plan - HTTP trigger to Event Hubs using VNET Integration | Azure Functions
 
-A common scenario for Azure Functions is the ingestion and processing of HTTP-based inputs. For example, an HTTP endpoint that is part of a larger API for ingesting customer feedabck and support information, or a flash sale that needs to ingest customer sign ups interested in the sale. The function app can do some validation and transformation of the provided information before sending it to a secure endpoint for further downstream processing.
+A common scenario for Azure Functions is the ingestion and processing of HTTP-based inputs. For example, an HTTP endpoint that is part of a larger API for ingesting customer feedback and support information, or a flash sale that needs to ingest customer sign ups interested in the sale. The function app can do some validation and transformation of the provided information before sending it to a secure endpoint for further downstream processing.
 
 This sample demonstrates a function app running in a Flex Consumption plan that connects to Event Hubs running in a virtual network. This sample demonstrates these two key features of the Flex Consumption plan:
 
@@ -23,7 +23,7 @@ This sample demonstrates a function app running in a Flex Consumption plan that 
 ![Diagram showing customer feedback HTTP calls into an Azure Functions Flex Consumption app then sending that data to Event Hubs through a VNet, for further downstream processing](./img/HTTP-VNET-EH.png)
 
 > [!IMPORTANT]
-> This sample creates several resources, includin an Event Hubs Premium namespace with 100 partitions. Make sure to delete the resource group after testing to minimize charges.
+> This sample creates several resources, including an Event Hubs Premium namespace with 100 partitions. Make sure to delete the resource group after testing to minimize charges.
 
 ## Prerequisites
 
@@ -61,8 +61,8 @@ azd up
 
 ## Test the solution
 
-1. Use a REST client to make HTTP POST calls to the function URL provided by the deployment output. If using VS Code, you can install and use the REST Client extension and use the [test.http](./loadtest/test.http) file. The `loadtest` folder also has sample JSON files you to use in the testing.
-2. Refresh the Application Insights live metrics, and observe the telemetry and how now it shows successful executions. This means your HTTP calls are making their way through the function app and into you VNet secured Event Hubs instance.
+1. Use a REST client to make HTTP POST calls to the function URL provided by the deployment output. If using VS Code, you can install and use the REST Client extension and use the [test.http](./loadtest/test.http) file. The `loadtest` folder also has sample JSON files you may use for the testing.
+2. Refresh the Application Insights live metrics, and observe the telemetry and how now it shows successful executions. This means your HTTP calls are making their way through the function app and into your VNet secured Event Hubs instance.
 ![Live metrics available](./img/live-metrics.png)
 3. Create a load test against your app using your favorite load testing solution. If you use Azure Load Testing or JMeter, you can use the example [loadtest.jmx](./loadtest/httppost.jmx) in your tests, making sure to edit the function name throughput the file.
 4. Run a load test and observe from your load testing solution, or from Application Insights live metrics, how the solution can scale very fast to handle thousands of requests per second, through Flex Consumption and into Event Hubs via the Vnet.
